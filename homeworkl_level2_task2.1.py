@@ -10,30 +10,27 @@
 # * [5]                             -> min = 5, max = 5
 # функции sorted, max и min использовать нельзя!
 
+from random import randint
+n=10
 
+date=[]
+for i in range(n):
+    date.append(randint(1,99))
 
-a,b,c=input('a'), input ('b'), input ('c')
-d=[a,b,c]
-def minimum():
-    for i in d:
-        if a<b and a<c:
-            print ('минимум=', a)
-        if b<a and b<c:
-            print ('минимум=', b)
-        if c<a and c<b:
-            print ('минимум=', c)
-    return minimum      
-minimum()
+def minimum(date):
+    for i in range (len(date)-1):
+        for j in range (len(date)-1):
+            if date[j]>date[j+1]:
+                date[j],date[j+1]=date[j+1], date[j]
+    print (date, '-> min=',date[0])
+    return date
+minimum (date)
 
-def maximum():
-    for i in d:
-        if a>b and a>c:
-            print ('максимум=', a)
-        if b>a and b>c:
-            print ('максимум=', b)
-        if c>a and c>b:
-            print ('максимум=', c)
-    return maximum     
-maximum()
-#def maximum(arr)
-# pass
+def maximum(date):
+    for i in range (len(date)-1):
+        for j in range (len(date)-1):
+            if date[j]>date[j+1]:
+                date[j],date[j+1]=date[j+1], date[j]
+    print (date, '-> max=',date[9])
+    return date
+maximum (date)
