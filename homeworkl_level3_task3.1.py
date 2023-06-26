@@ -26,17 +26,41 @@
 #   - использовать готовые классы numpy.array() и pandas.DataFrame() запрещено!
 #   - проявите фантазию :)
 
-from sys import stdin
-from copy import deepcopy
 
 
 class Matrix(object):
-    def __init__(self, matrix):
-        self.matrix = deepcopy(matrix)
-
+    def __init__(self, r,c):
+        self.matrix = self.get_matrix(r,c)
+    def get_matrix (self,r,c):
+        num=1
+        matrix=[(None for j in range(c) for i in range (r))]
+        for i in range (len(matrix)):
+            for j in range (len(matrix[i])):
+                matrix[i][j]=num
+                num+=1
+        return matrix
+    
+    def get_matrix_str (self,matrix):
+        strings=[]
+        for r in matrix:
+            strings.append(str(r))
+        return '\n'.join(strings)
+    
     def __str__(self):
-        return '\n'.join([''.join(['%d\t' % i for i in row]) for
-                          row in self.matrix])
+        return self.get_matrix_str(self.matrix)
+    def __len__(self):
+        return len(self.matrix)
+    def add(self.matrix):
+        self.content.append(matrix)
+    def get_rows_count(self):
+        return self.r
+    
+    def get_columns_count (self):
+        return self.c
+
+m=Matrix(4,5)
+print (m)
+
 
     @property
     def size(self):
